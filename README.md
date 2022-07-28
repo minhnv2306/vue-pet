@@ -1,3 +1,6 @@
-# vue-pet
+# VueJS Pet
 
-# [Section 8: Component Communication](./section8/README.md)
+This is my Pet, its name is VueJS ^^
+
+### [Section 2: Basics & Core Concepts - DOM Interaction with Vue](https://github.com/minhnv2306/vue-pet/tree/main/section2)
+### [Section 8: Component Communication](https://github.com/minhnv2306/vue-pet/tree/main/section8)
