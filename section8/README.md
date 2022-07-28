@@ -22,20 +22,20 @@ Table Content
 ```
 
 ## [92. Introducing "Props" (Parent => Child Communication)](https://github.com/minhnv2306/vue-pet/commit/0604d5e95d5e6f9b3ff7b287383d18fd804c107e)
-```js
+```html
 <friend-contact
-    name="Manuel Lorenz"
-    phone-number="01234 56789"
+  name="Manuel Lorenz"
+  phone-number="01234 56789"
 ></friend-contact>
 ```
 Trong component
 ```js
 export default {
-    props: [
-        'name',
-        'phoneNumber'
-    ],
-    ...
+  props: [
+    'name',
+    'phoneNumber'
+  ],
+  ...
 }
 ```
 > Vue sẽ tự hiểu phone-number về phoneNumber
@@ -48,24 +48,24 @@ export default {
 ```js
 // FriendContact.Vue
 methods: {
-    toggleFavorite() {
-        this.$emit('toggle-favorite', this.id);
-    }
+  toggleFavorite() {
+    this.$emit('toggle-favorite', this.id);
+  }
 }
 ```
 Nghe sự kiện trên cha
 ```js
-// App.Vue
+<!-- App.Vue -->
 <friend-contact
-    ...
-    @toggle-favorite="toggleFavoriteStatus"
+  ...
+  @toggle-favorite="toggleFavoriteStatus"
 ></friend-contact>
 
 ...
 methods: {
-    toggleFavoriteStatus(friendId) {
-        ...
-    }
+  toggleFavoriteStatus(friendId) {
+    ...
+  }
 }
 ```
 
@@ -74,15 +74,15 @@ Tiếp theo chúng ta tiến thêm 1 bước viết code gọn gàng hơn nứa 
 ```js
 ...
 emits: [
-    'toggle-favorite'
+  'toggle-favorite'
 ],
 ```
 Có thể xử lý luôn với tùy chọn này
 ```js
 emits: {
-    'toggle-favorite': function(id) {
-        // Validate ID and process in here
-    }
+  'toggle-favorite': function(id) {
+    // Validate ID and process in here
+  }
 },
 ```
 
@@ -100,13 +100,13 @@ emits: {
 ## 103. Provide + Inject To The Rescue
 ```js
 provide: {
-    topics: [
-        ...
-    ]
+  topics: [
+    ...
+  ]
 }
 
 export default {
-    inject: ['topics'],
+  inject: ['topics'],
 }
 ```
 Và đây là một lưu ý quan trọng, bạn chỉ có thể tiêm những gì đã được cung cấp ở cấp cao hơn.
@@ -118,9 +118,9 @@ Ví dụ: nếu chúng tôi cung cấp một cái gì đó trong ActiveElement, 
 Viết ngắn lại
 ```js
 provide() {
-    return {
-        topics: this.topics
-    };
+  return {
+    topics: this.topics
+  };
 }
 ```
 Vì vậy, bằng chứng này Provide + Inject hoạt động.
