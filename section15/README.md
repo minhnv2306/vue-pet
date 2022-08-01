@@ -1,4 +1,4 @@
-# Section 15
+# Section 15: VueX
 
 Table Content
 
